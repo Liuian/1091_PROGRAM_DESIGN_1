@@ -1,0 +1,10 @@
+solve: generate solve.o sudoku.o
+	g++ -o solve solve.o sudoku.o
+generate: solve generate.o sudoku.o
+	g++ -o generate generate.o sudoku.o
+sudoku.o:sudoku.h sudoku.cpp
+	g++ -c sudoku.cpp
+solve.o:solve.cpp sudoku.h
+	g++ -c solve.cpp
+generate.o:generate.cpp sudoku.h
+	g++ -c generate.cpp
